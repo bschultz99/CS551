@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     while((wpid = wait(&status)) > 0);
     gettimeofday(&end, NULL);
      micros = ((end.tv_sec - start.tv_sec) * 1000000);
-     printf("%i", micros)
+     printf("%li", micros);
     //printf("%i", toRead);
     return 0;
 
