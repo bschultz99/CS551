@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-Wall
+
+build: filebenchmark
+
+
+filebenchmark: filebenchmark.c
+	$(CC) $(CFLAGS) -o filebenchmark $<
+
+clean:
+	rm -rf filebenchmark
