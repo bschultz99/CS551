@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     process = atoi(argv[1]);
     files[0] = open("1.bin", O_RDWR);
     toRead = write(files[0], buf, buffer_num);
-    printf(toRead);
+    //printf(toRead);
     return 0;
 
 }
