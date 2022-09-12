@@ -37,13 +37,12 @@ int main(int argc, char **argv)
         files[i] = open(i +".bin", O_RDWR);
         if((pid = fork()) == 0){
             write(files[i], buf, buffer_num);
-            printf("Forked");
             exit(0);
         }
     }
     while((wpid = wait(&status)) > 0);
     gettimeofday(&end, NULL);
-     micros = ((end.tv_sec - start.tv_sec) * 1000000);
+     micros = (((end.tv_sec - start.tv_sec) * 1000000) + end.tv_usec) - (start.tv_usec);
      printf("%li", micros);
     //printf("%i", toRead);
     return 0;
