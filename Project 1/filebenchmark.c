@@ -31,10 +31,10 @@ int main(int argc, char **argv)
     }
 
     char *buf = (char *)malloc(buffer_num);
-    process = atoi(argv[1])
+    process = atoi(argv[1]);
     files[0] = open("1.bin", O_RDWR);
-    toread = write(files[0], buf, buffer_num);
-    printf(toread);
+    toRead = write(files[0], buf, buffer_num);
+    printf(toRead);
     return 0;
-    
+
 }
