@@ -5,6 +5,7 @@
 #     - num_procs: 1-100
 
 # right now the bash script calls the program with only one configuration
-for i in 100; do
-    fallocate -l 5M i.bin
+for i in {0..99} 
+do
+    fallocate -l 5M $i.bin
 done
