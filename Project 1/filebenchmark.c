@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         files[i] = open(i +".bin", O_RDWR);
         if((pid = fork()) == 0){
             write(files[i], buf, buffer_num);
-            printf("Forked")
+            printf("Forked");
             exit(0);
         }
     }
