@@ -32,9 +32,19 @@ int main(int argc, char **argv)
 
     char *buf = (char *)malloc(buffer_num);
     process = atoi(argv[1]);
-    files[0] = open("1.bin", O_RDWR);
-    toRead = write(files[0], buf, buffer_num);
-    printf("%i", toRead);
+    gettimeofday(&start, NULL);
+    for (int i = 0; i < process; i++) {
+        files[i] = open(i +".bin", O_RDWR);
+        if((pid = fork()) == 0){
+            write(files[i], buf, buffer_num);
+            exit(0);
+        }
+    }
+    while((wpid = wait(&status)) > 0);
+    gettimeofday(&end, NULL);
+     micros = ((end.tv_sec - start.tv_sec) * 1000000)
+     printf("%i", micros)
+    //printf("%i", toRead);
     return 0;
 
 }
